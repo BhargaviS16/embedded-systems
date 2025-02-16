@@ -1,0 +1,43 @@
+#define COOLING_LED 8  // Cooling system (Blue)
+#define HEATING_LED 9  // Heating system (Red)
+#define FAN_LED 10     // Fan (Green)
+
+const int setTemperature = 30; // Desired temperature
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(COOLING_LED, OUTPUT);
+  pinMode(HEATING_LED, OUTPUT);
+  pinMode(FAN_LED, OUTPUT);
+  Serial.println("Enter the current temperature:");
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    int currentTemp = Serial.parseInt();  // Read input temperature
+
+    Serial.print("Temperature: ");
+    Serial.println(currentTemp);
+
+    if (currentTemp < setTemperature) {  // Heating mode
+      digitalWrite(HEATING_LED, HIGH);
+      digitalWrite(COOLING_LED, LOW);
+      Serial.println("Heating ON");
+    } 
+    else if (currentTemp > setTemperature) {  // Cooling mode
+      digitalWrite(HEATING_LED, LOW);
+      digitalWrite(COOLING_LED, HIGH);
+      Serial.println("Cooling ON");
+    } 
+    else {  // System OFF, Fan ON
+      digitalWrite(HEATING_LED, LOW);
+      digitalWrite(COOLING_LED, LOW);
+      Serial.println("System OFF");
+    }
+
+    digitalWrite(FAN_LED, HIGH); // Fan always ON
+    Serial.println("Enter the current temperature:");
+  }
+  delay(500);
+}
+
