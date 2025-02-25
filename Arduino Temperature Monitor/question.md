@@ -58,34 +58,65 @@ d) Provide pictures with labels showing your setup and properly working display.
 e) Develop a strategy to verify proper functionality of the system.
 
 f) Provide details of how you have verified the functionality of the system.
+
 Appendix:
+
 // A sample program to display temperature on the LCD display
+
+
 // include the library code:
+
 #include <LiquidCrystal.h>
+
 // initialize the library with the numbers of the interface pins
+
 LiquidCrystal lcd(12, 11, 5,4,3,2);
+
 float tempVal;
+
 float sensorVal;
+
 int sensorPin = 0;
+
 void setup() {
+
 // set up the LCD's number of rows and columns:
+
 EECE4712/6712: Embedded Systems EECE, UoM Page 3 of 3
+
 lcd.begin(16, 2);
+
 // Print a message to the LCD.
+
 lcd.print("Temp (deg. F)");
+
 // initialize serial communication:
+
 Serial.begin(9600);
+
 }
+
 void loop() {
+
 lcd.clear();
+
 // get temperature
+
 sensorVal = (analogRead(sensorPin)/1023.0)*5.0;
+
 tempVal = sensorVal*100.0;
+
 delay(100);
+
 // set the cursor to column 0, line 1
+
 // (note: line 1 is the second row, since counting begins with 0):
+
 lcd.print("Temp (deg. F):");
+
 lcd.setCursor(0, 1);
+
 lcd.print(tempVal);
+
 delay(500); //0.5sec
 
