@@ -37,16 +37,26 @@ functions are used to interface the Digital I/O pins of the Arduino board with t
 from Arduino.cc as needed.
 http://arduino.cc/en/Reference/LiquidCrystalConstructor
 https://code.google.com/p/arduino/source/browse/trunk/libraries/LiquidCrystal/LiquidCrystal.h?r=1037
+
+
 You will need to modify the codes to perform the given task.
+
 Task (100%):
+
 Integrate the LCD display as the output of temperature program and display the temperature of the
 sensor on the LCD display. Functionally verify proper operation.
 Provide the followings in the report:
+
 a) Describe the process you used to develop the custom code for the given task.
+
 b) Provide the complete (final) software code with sufficient comments.
+
 c) Provide snapshots confirming successful download of the code.
+
 d) Provide pictures with labels showing your setup and properly working display.
+
 e) Develop a strategy to verify proper functionality of the system.
+
 f) Provide details of how you have verified the functionality of the system.
 Appendix:
 // A sample program to display temperature on the LCD display
